@@ -3,16 +3,22 @@ import './ListView.scss'
 import ListItem from "./ListItem"
 import changeActiveRedirect from "../containers/ListViewContainer"
 
+//Special case: will act like No Games if theres 1 element
+//ToDo: give unique ids
 function mapGames(games, details, redirect) {
+    console.log(games)
     return (
       games.map((current_game) =>
-      <ListItem key={ current_game } details = { details } redirect = { redirect } game={ current_game } />
+      <ListItem details = { details } redirect = { redirect } game={ current_game } />
       )
     )
 }
 export const ListView = (props) => (
   <div className='list-view'>
-    { props.games ? mapGames(props.games, props.details, props.redirect) : "No Games" }
+    <div className="title">
+      { `${props.games.month}\\${props.games.day}\\${props.games.year}` }
+    </div>
+    { props.games.games.length  ? mapGames(props.games.games, props.details, props.redirect) : "No Games" }
   </div>
 )
 

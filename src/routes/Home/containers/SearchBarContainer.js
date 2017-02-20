@@ -4,7 +4,7 @@ import { searchDay } from '../modules/searchbar'
 import SearchBar from '../components/SearchBar'
 
 const mapDispatchToProps = {
-  search : (day) => searchDay(day)
+  search : (year, month, day) => searchDay(year, month, day)
 }
 
 const mapStateToProps = (state) => ({

@@ -1,18 +1,6 @@
 import React from 'react'
-import { push } from 'react-router-redux'
 
 export const SET_ACTIVE_GAME = 'SET_ACTIVE_GAME'
-export const DETAILS_URL = '/details'
-
-// -----
-// Helper Functions
-// ----
-export function changeActiveRedirect (details, game) {
-  console.log(game)
-  //details(game)
-  //push(DETAILS_URL)
-}
-
 
 // ------------------------------------
 // Actions

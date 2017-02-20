@@ -4,7 +4,7 @@ import SearchBarContainer from '../containers/SearchBarContainer'
 
 
 export const SearchBar = (props) => (
-  <div style = {{ width: "100px", height: "100px", backgroundColor: "red" }} onClick={ () => props.search(1) }>
+  <div style = {{ width: "100px", height: "100px", backgroundColor: "red" }} onClick={ () => props.search(2016, 8, 4) }>
     "tmp"
   </div>
 )
