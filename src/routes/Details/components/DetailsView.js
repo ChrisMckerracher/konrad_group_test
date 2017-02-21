@@ -3,7 +3,7 @@ import './DetailsView.scss'
 import LineScoreContainer from '../containers/LineScoreContainer'
 import StatsContainer from '../containers/StatsContainer'
 
-export class DetailsView extends React.Component {
+export default class DetailsView extends React.Component {
   
   componentWillMount() {
     this.props.search(this.props.game.game_data_directory)
@@ -18,5 +18,3 @@ export class DetailsView extends React.Component {
     )
   }
 }
-
-export default DetailsView

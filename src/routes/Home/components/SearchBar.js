@@ -8,19 +8,21 @@ import './SearchBar.scss'
 export class SearchBar extends React.Component  {
   
   componentWillMount() {
-    this.props.search(new Date(2016, 8, 4), 0)
+    if (this.props.games.games.length == 0) {
+      this.props.search("", 0)
+    }
   }
   
   render() {
     return (
       <div className="search-bar">
-        <button onClick={ () => this.props.search(this.props.games.date, -1) }>
-        "BACK"
+        <button className="nav-button" onClick={ () => this.props.search(this.props.games.date, -1) }>
+        {"<"}
         </button>
-        <div style = {{ width: "100px", height: "100px", backgroundColor: "red" }}>
+        <div className="date-info">
         {this.props.games.date ? String(this.props.games.date) : ""}
         </div>
-        <button onClick={ () => this.props.search(this.props.games.date, 1) }>
+        <button className="nav-button" onClick={ () => this.props.search(this.props.games.date, 1) }>
         >
         </button>
       </div>

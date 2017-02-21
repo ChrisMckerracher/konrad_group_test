@@ -31,32 +31,32 @@ const columns = [
   }
 ]
 
-function concat(obj1,obj2) {
-  return Object.assign(obj1, obj2) //not immuatable, fix if time
-}
-
 function populateStats(batting){
   //0 is always home, 1 away
-  let home_batting = batting[0].batter.map((batter) => ({"name": batter.name_display_first_last, "AB": batter.ab,
-    "R": batter.r, "H": batter.h, "RBI": batter.rbi, "BB": batter.bb, "SO": batter.so, "AVG": batter.avg
-  }))
+  let home_batting = batting[0].batter.map((batter) => (
+    {"name": batter.name_display_first_last, "AB": batter.ab,
+    "R": batter.r, "H": batter.h, "RBI": batter.rbi, "BB": batter.bb,
+    "SO": batter.so, "AVG": batter.avg}))
   
-  let away_batting = batting[1].batter.map((batter) => ({"name": batter.name_display_first_last, "AB": batter.ab,
-    "R": batter.r, "H": batter.h, "RBI": batter.rbi, "BB": batter.bb, "SO": batter.so, "AVG": batter.avg
-  }))
+  let away_batting = batting[1].batter.map((batter) => (
+    {"name": batter.name_display_first_last, "AB": batter.ab,
+    "R": batter.r, "H": batter.h, "RBI": batter.rbi, "BB": batter.bb,
+    "SO": batter.so, "AVG": batter.avg }))
 
   return [home_batting, away_batting]
 }
 export class Stats extends React.Component {
   
-
-  
   render() {
     if (this.props.game_details.boxscore && this.props.game_details.boxscore.batting) {
       return (
         <div>
-          <button onClick = { () => this.props.setTeam(0) }> {this.props.game_details.boxscore.home_sname}</button>
-          <button onClick = { () => this.props.setTeam(1) }>{this.props.game_details.boxscore.away_sname}</button>
+          <button onClick = { () => this.props.setTeam(0) }>
+            {this.props.game_details.boxscore.home_sname}
+          </button>
+          <button onClick = { () => this.props.setTeam(1) }>
+            {this.props.game_details.boxscore.away_sname}
+            </button>
           <ReactTable
             data={ populateStats(this.props.game_details.boxscore.batting)[this.props.active_team]  }
             columns={columns}
@@ -66,7 +66,7 @@ export class Stats extends React.Component {
       )
     } else {
       return (
-        <div> Sorry! </div>
+        <div> No Game Selected! </div>
       )
     }
   }

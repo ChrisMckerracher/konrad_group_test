@@ -1,9 +1,8 @@
 import { connect } from 'react-redux'
-import { searchGame } from '../modules/linescore'
 import LineScore from '../components/LineScore'
 
 const mapDispatchToProps = {
-  search : (url) => searchGame(url)
+  search : (url) => url //does nothing, placeholder
 }
 
 const mapStateToProps = (state) => ({

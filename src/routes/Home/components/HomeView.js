@@ -5,7 +5,7 @@ import ListViewContainer from '../containers/ListViewContainer'
 import SearchBarContainer from '../containers/SearchBarContainer'
 
 export const HomeView = () => (
-  <div>
+  <div className="home-view">
     <SearchBarContainer/>
     <ListViewContainer/>
   </div>

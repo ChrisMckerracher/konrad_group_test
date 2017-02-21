@@ -3,26 +3,24 @@ import { searchDay } from '../modules/searchbar'
 
 import SearchBar from '../components/SearchBar'
 
-const milli_in_day = 86400000
+//incrementing date time by hand is a pain
+//I had a couple bugs related to accounting for
+//daylight saving
+var moment = require('moment')
 
-function incDecDate(date, direction) {
+function incDecDate(date, amount) {
   let new_date = date
-  if (direction == -1) {
-    new_date = new Date(date.getTime() - milli_in_day)
-    
-  } else if (direction == 1) {
-    new_date =  new Date(date.getTime() + milli_in_day)
-    
-  } else {//should always be 1, -1, or neutral
-    let b = 1 //temp filler line
+  if (amount == 0){
+    new_date = moment("2016-7-4")
+  }else{
+    new_date = moment(new_date).add(amount, "day")
   }
-  console.log(String(new_date.getTime()))
-  return [new_date.getFullYear(), new_date.getMonth(), new_date.getDate()]
+  return [new_date.year(), new_date.month(), new_date.date()]
 
 }
 
 const mapDispatchToProps = {
-  search : (date, direction) => searchDay(...incDecDate(date,direction))
+  search : (date, direction) => searchDay(...incDecDate(date, direction))
 }
 
 const mapStateToProps = (state) => ({

@@ -42,6 +42,7 @@ const ACTION_HANDLERS = {
 
 
 export function searchDay(year, month, day) {
+
   return dispatch => {
     dispatch(requestDay(year,month,day))
     month = month >= 10 ? month : "0" + month
@@ -49,7 +50,7 @@ export function searchDay(year, month, day) {
     year = String(year)
     month = String(month)
     day = String(day)
-    console.log(year)
+    console.log(year, month, day)
     let url = `http://gd2.mlb.com/components/game/mlb/year_${year}/month_${month}/day_${day}/master_scoreboard.json`
     return fetch(url)
       .then(response => response.json())
@@ -61,13 +62,15 @@ export function searchDay(year, month, day) {
 // Reducer
 // ------------------------------------
 
+var moment = require('moment');
+
 export default function searchbarReducer (state = {isFetching: false, games: []}, action) {
   
   //const handler = ACTION_HANDLERS[action.type]
 
   switch (action.type) {
     case SEARCH_DAY:
-      return Object.assign({}, state, {isFetching: true, date: new Date(action.year, action.month, action.day)})
+      return Object.assign({}, state, {isFetching: true, date: moment(`${action.year}-${action.month + 1}-${action.day}`)})
     case RECEIVE_DAY:
       return Object.assign({}, state, {isFetching:false, games: action.games.game, })
     default:

@@ -63,20 +63,18 @@ function populateLineScore(linescore, home_name, away_name){
   return [home_inning, away_inning]
 }
 export class LineScore extends React.Component {
-  
-  componentWillMount() {
-    this.props.search(this.props.game.game_data_directory)
-  }
-  
+
   render() {
+    //mainly want to check linescore's existence. Short circuit for sanity
     if (this.props.game_details.boxscore && this.props.game_details.boxscore.linescore) {
       return (
         <ReactTable
-          data={ populateLineScore(this.props.game_details.boxscore.linescore, this.props.game_details.boxscore.home_sname, this.props.game_details.boxscore.away_sname)  }
+          data={ populateLineScore(this.props.game_details.boxscore.linescore,
+            this.props.game_details.boxscore.home_sname,
+            this.props.game_details.boxscore.away_sname)  }
           columns={columns}
           defaultPageSize={2}
           showPagination={false}
-
         />
       )
     } else {
@@ -86,6 +84,5 @@ export class LineScore extends React.Component {
     }
   }
 }
-
 
 export default LineScore
