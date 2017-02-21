@@ -1,6 +1,6 @@
 import { connect } from 'react-redux'
 import { searchDay } from '../modules/searchbar'
-import { incDecDate } from '../../../utilities/date-time'
+import { incDecDate } from 'utilities/date-time'
 
 import SearchBar from '../components/SearchBar'
 

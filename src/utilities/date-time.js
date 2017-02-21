@@ -11,10 +11,10 @@ export function newDate(year, month, day) {
   return moment(`${year}-${month + 1}-${day}`)
 }
 
-export function incDecDate(date, amount) {
+export function incDecDate(date, amount, default_date='2014-03-29') {
   let new_date = date
   if (amount == 0){
-    new_date = moment("2016-7-4")
+    new_date = moment(default_date)
   }else{
     new_date = moment(new_date).add(amount, "day")
   }

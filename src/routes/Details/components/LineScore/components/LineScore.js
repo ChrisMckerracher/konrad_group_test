@@ -49,26 +49,21 @@ export default class LineScore extends React.Component {
 
   render() {
     //mainly want to check linescore's existence. Short circuit for sanity
-    if (this.props.game_details.boxscore && this.props.game_details.boxscore.linescore) {
-      return (
-        <div className="linescore">
-          <div className="linescore-title">
-            Linescore
-          </div>
-          <ReactTable
-            data={ populateLineScore(this.props.game_details.boxscore.linescore,
-              this.props.game_details.boxscore.home_sname,
-              this.props.game_details.boxscore.away_sname)  }
-            columns={columns}
-            defaultPageSize={2}
-            showPagination={false}
-          />
+    return (
+      <div className="linescore">
+        <div className="linescore-title">
+          Linescore
         </div>
-      )
-    } else {
-      return (
-        <div> Sorry! </div>
-      )
-    }
+        <ReactTable
+          data={ populateLineScore(this.props.game_details.boxscore.linescore,
+            this.props.game_details.boxscore.home_sname,
+            this.props.game_details.boxscore.away_sname)  }
+          columns={columns}
+          defaultPageSize={2}
+          showPagination={false}
+        />
+      </div>
+    )
   }
 }
+

@@ -39,23 +39,17 @@ export default class Stats extends React.Component {
   render() {
     let boxscore = this.props.game_details.boxscore
     let active_team = getActiveTeamName(this.props.active_team, boxscore.home_sname, boxscore.away_sname)
-    if (boxscore && boxscore.batting) {
-      return (
-        <div className="stats">
-          <div className="stats-title">
-            Batting Info for { active_team }
-          </div>
-          <ReactTable
-            data={ populateStats(boxscore.batting)[this.props.active_team] }
-            columns={columns}
-            defaultPageSize={10}
-          />
+    return (
+      <div className="stats">
+        <div className="stats-title">
+          Batting Info for { active_team }
         </div>
-      )
-    } else {
-      return (
-        <div> No Game Selected! </div>
-      )
-    }
+        <ReactTable
+          data={ populateStats(boxscore.batting)[this.props.active_team] }
+          columns={columns}
+          defaultPageSize={10}
+        />
+      </div>
+    )
   }
 }

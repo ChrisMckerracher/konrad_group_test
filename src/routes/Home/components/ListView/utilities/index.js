@@ -1,3 +1,6 @@
+import React from 'react'
+import ListItem from "../components/ListItem"
+
 
 export function sort_by_team(games, team) {
   let team_list = []
@@ -36,4 +39,25 @@ export function winningTeam(int, linescore) {//0 or 1, should use enum
 export function changeActiveRedirect (details, redirect, game) {
   details(game)
   redirect()
+}
+
+function mapGames(games, details, redirect) {
+    return (
+      sort_by_team(games, "TOR").map((current_game) =>
+      <ListItem details = { details } redirect = { redirect } game={ current_game } />
+      )
+    )
+}
+
+export function populateView(games_list, details, redirect) {
+  if (games_list.error || !(games_list.games)  ) {
+    return "No Games Today"
+  }
+  if (!(games_list.games.length) && games_list.games.game_type) { //not a list, but is a game object
+      return mapGames([games_list.games], details, redirect)
+  }
+  if (games_list.isFetching) {
+    return "Loading"
+  }
+  return mapGames(games_list.games, details, redirect)
 }

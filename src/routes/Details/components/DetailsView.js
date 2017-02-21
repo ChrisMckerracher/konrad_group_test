@@ -19,12 +19,18 @@ export default class DetailsView extends React.Component {
             Loading
           </div>
         )
-      } else {
+      } else if (this.props.game_details.boxscore && this.props.game_details.boxscore.linescore) {
         return(
           <div>
             <HeaderContainer/>
             <LineScoreContainer/>
             <StatsContainer/>
+          </div>
+        )
+      } else {
+        return (
+          <div>
+            "No Game Selected!"
           </div>
         )
       }

@@ -1,6 +1,5 @@
 import React from 'react'
 import { combineReducers } from 'redux'
-import fetch from 'isomorphic-fetch'
 import { padDayMonth, newDate } from '../../../utilities/date-time'
 
 
@@ -19,13 +18,14 @@ export function requestDay (year=2016, month=10, day=4) {
   }
 }
 
-export function receiveDay (year, month, day, json){
+export function receiveDay (year, month, day, json, is_error=false){
   return {
     type: RECEIVE_DAY,
     games: json.data.games,
     year,
     month,
-    day
+    day,
+    is_error
   }
 }
 
@@ -35,15 +35,23 @@ export function searchDay(year, month, day) {
 
   return dispatch => {
     dispatch(requestDay(year,month,day))
-    month = padDayMonth(month)
+    month = padDayMonth(month + 1)
     day = padDayMonth(day)
     year = String(year)
     month = String(month)
     day = String(day)
     let url = `http://gd2.mlb.com/components/game/mlb/year_${year}/month_${month}/day_${day}/master_scoreboard.json`
+    console.log(url )
+  
     return fetch(url)
-      .then(response => response.json())
-      .then(json => dispatch(receiveDay(year, month, day, json)))
+      .then( response => {
+          if (response.status >= 400) {
+            dispatch(receiveDay(year, month, day, json, true))
+          } else {
+            response.json().then(json => dispatch(receiveDay(year, month, day, json)))
+          }
+      }
+    ).catch( () => dispatch(receiveDay(year, month, day, {data: {games: ""}}, true)))
   }
 }
 
@@ -59,7 +67,7 @@ export default function searchbarReducer (state = {isFetching: false, games: []}
     case SEARCH_DAY:
       return Object.assign({}, state, {isFetching: true, date: newDate(action.year, action.month, action.day) })
     case RECEIVE_DAY:
-      return Object.assign({}, state, {isFetching:false, games: action.games.game, })
+      return Object.assign({}, state, {isFetching:false, games: action.games.game, error: action.is_error })
     default:
       return state
     
