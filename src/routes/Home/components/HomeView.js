@@ -1,6 +1,5 @@
 import React from 'react'
-import DuckImage from '../assets/Duck.jpg'
-import './HomeView.scss'
+import '../styles/HomeView.scss'
 import ListViewContainer from '../containers/ListViewContainer'
 import SearchBarContainer from '../containers/SearchBarContainer'
 

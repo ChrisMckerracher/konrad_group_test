@@ -1,10 +1,9 @@
 import { connect } from 'react-redux'
-import { setTeam } from '../modules/stats'
 
 import Stats from '../components/Stats'
 
 const mapDispatchToProps = {
-  setTeam : (int) => setTeam(int)
+  setTeam : (int) => int
 }
 
 const mapStateToProps = (state) => ({

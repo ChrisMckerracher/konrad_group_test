@@ -1,0 +1,34 @@
+.header {
+  display: flex;
+  flex-direction: column;
+  justify-content:center;
+  margin-bottom: 1.5rem;
+}
+
+.date {
+  width: 150px;
+  border-bottom: 1px solid black;
+  align-self: center;
+  margin-bottom: 5px;
+
+}
+
+.teams-playing {
+  display: flex;
+  
+}
+
+.team {
+  flex-grow: 5;
+  border-bottom: 1px solid gray;
+  cursor: pointer;
+}
+
+.vs {
+  flex-grow: 1;
+  text-align: center;
+}
+
+.active-team {
+  border-bottom: solid #4DD0E1;
+}

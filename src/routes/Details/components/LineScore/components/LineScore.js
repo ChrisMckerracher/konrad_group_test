@@ -1,8 +1,9 @@
 import React from 'react'
 import ReactTable from 'react-table'
-
-import 'react-table/react-table.css'
 import { populateLineScore } from '../utilities'
+
+import '../styles/LineScore.scss'
+import 'react-table/react-table.css'
 
 const columns = [
   {
@@ -50,14 +51,19 @@ export default class LineScore extends React.Component {
     //mainly want to check linescore's existence. Short circuit for sanity
     if (this.props.game_details.boxscore && this.props.game_details.boxscore.linescore) {
       return (
-        <ReactTable
-          data={ populateLineScore(this.props.game_details.boxscore.linescore,
-            this.props.game_details.boxscore.home_sname,
-            this.props.game_details.boxscore.away_sname)  }
-          columns={columns}
-          defaultPageSize={2}
-          showPagination={false}
-        />
+        <div className="linescore">
+          <div className="linescore-title">
+            Linescore
+          </div>
+          <ReactTable
+            data={ populateLineScore(this.props.game_details.boxscore.linescore,
+              this.props.game_details.boxscore.home_sname,
+              this.props.game_details.boxscore.away_sname)  }
+            columns={columns}
+            defaultPageSize={2}
+            showPagination={false}
+          />
+        </div>
       )
     } else {
       return (

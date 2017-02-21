@@ -7,10 +7,10 @@ export const ListItem = (props) => (
     changeActiveRedirect(props.details, props.redirect, props.game) }>
         <div className="teams">
           <div className={ winningTeam(0, props.game.linescore) }>
-            Home Team: { props.game.home_team_city + " " + props.game.home_team_name }
+            Home Team: { props.game.home_team_city }
           </div>
           <div className={winningTeam(1, props.game.linescore)}>
-            Away Team: { props.game.away_team_city + " " + props.game.away_team_name}
+            Away Team: { props.game.away_team_city }
           </div>
         </div>
         <div className="status">

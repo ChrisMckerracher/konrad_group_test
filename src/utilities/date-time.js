@@ -19,5 +19,9 @@ export function incDecDate(date, amount) {
     new_date = moment(new_date).add(amount, "day")
   }
   return [new_date.year(), new_date.month(), new_date.date()]
+}
 
+export function formatDate(date) {
+  let f_date = `${date.format('dddd')} ${date.format("MMM")} ${date.date()} ${date.year()}`
+  return f_date
 }

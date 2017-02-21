@@ -1,0 +1,12 @@
+.linescore {
+  display:flex;
+  flex-direction: column;
+  margin-bottom: 2rem;
+}
+
+.linescore-title {
+  border-bottom: 1px solid;
+  align-self: center;
+  width: 100px;
+  margin-bottom: 5px;
+}

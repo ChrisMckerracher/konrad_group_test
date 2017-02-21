@@ -1,6 +1,7 @@
 .search-bar {
   display: flex;
   width: 300px;
+  height: 40px;
   padding: 2px;
   justify-content: center;
 }
@@ -11,4 +12,7 @@
 
 .date-info {
   flex-grow: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }

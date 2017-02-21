@@ -1,7 +1,9 @@
 import React from 'react'
 import ListViewContainer from '../containers/ListViewContainer'
 import SearchBarContainer from '../containers/SearchBarContainer'
-import './SearchBar.scss'
+import '../styles/SearchBar.scss'
+import { formatDate } from 'utilities/date-time'
+
  
 export default class SearchBar extends React.Component  {
   
@@ -12,15 +14,14 @@ export default class SearchBar extends React.Component  {
   }
   
   render() {
+    let date = this.props.games.date
     return (
       <div className="search-bar">
         <button className="nav-button" onClick={ () => this.props.search(this.props.games.date, -1) }>
         {"<"}
         </button>
         <div className="date-info">
-        {this.props.games.date ?
-          `${this.props.games.date.format('dddd')} ${this.props.games.date.format("MMM")} ${this.props.games.date.date()} ${this.props.games.date.year()}`
-          : ""}
+          <span>{date ? formatDate(date): ""}</span>
         </div>
         <button className="nav-button" onClick={ () => this.props.search(this.props.games.date, 1) }>
         >

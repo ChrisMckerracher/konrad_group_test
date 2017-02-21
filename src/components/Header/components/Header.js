@@ -1,6 +1,6 @@
 import React from 'react'
 import { IndexLink, Link } from 'react-router'
-import './Header.scss'
+import '../styles/Header.scss'
 
 export const Header = () => (
   <div>

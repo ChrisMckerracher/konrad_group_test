@@ -15,7 +15,7 @@ export default (store) => ({
       /*  Add the reducer to the store on key 'counter'  */
       injectReducer(store, { key: 'game_details', reducer })
       
-      reducer = require('./modules/stats').default
+      reducer = require('./modules/header').default
       
       injectReducer(store, {key: 'active_team', reducer})
 

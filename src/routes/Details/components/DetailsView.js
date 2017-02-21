@@ -1,7 +1,8 @@
 import React from 'react'
-import './DetailsView.scss'
+import '../styles/DetailsView.scss'
 import LineScoreContainer from '../containers/LineScoreContainer'
 import StatsContainer from '../containers/StatsContainer'
+import HeaderContainer from '../containers/HeaderContainer'
 
 export default class DetailsView extends React.Component {
   
@@ -21,6 +22,7 @@ export default class DetailsView extends React.Component {
       } else {
         return(
           <div>
+            <HeaderContainer/>
             <LineScoreContainer/>
             <StatsContainer/>
           </div>
