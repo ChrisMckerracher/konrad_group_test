@@ -15,7 +15,7 @@ function mapGames(games, details, redirect) {
 }
 export const ListView = (props) => (
   <div className='list-view'>
-    { props.games.games.length  ? mapGames(props.games.games, props.details, props.redirect) : "No Games" }
+    { props.games.games.length  ? mapGames(props.games.games, props.details, props.redirect) : "No Games Today" }
   </div>
 )
 

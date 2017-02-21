@@ -16,6 +16,7 @@ function incDecDate(date, direction) {
   } else {//should always be 1, -1, or neutral
     let b = 1 //temp filler line
   }
+  console.log(String(new_date.getTime()))
   return [new_date.getFullYear(), new_date.getMonth(), new_date.getDate()]
 
 }

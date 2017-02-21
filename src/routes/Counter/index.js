@@ -9,11 +9,15 @@ export default (store) => ({
     require.ensure([], (require) => {
       /*  Webpack - use require callback to define
           dependencies for bundling   */
-      const Counter = require('./containers/CounterContainer').default
-      const reducer = require('./modules/counter').default
+      const Counter = require('./containers/DetailsViewContainer').default
+      let reducer = require('./modules/detailsview').default
 
       /*  Add the reducer to the store on key 'counter'  */
-      injectReducer(store, { key: 'counter', reducer })
+      injectReducer(store, { key: 'game_details', reducer })
+      
+      reducer = require('./modules/stats').default
+      
+      injectReducer(store, {key: 'active_team', reducer})
 
       /*  Return getComponent   */
       cb(null, Counter)

@@ -6,7 +6,6 @@ import SearchBarContainer from '../containers/SearchBarContainer'
 
 export const HomeView = () => (
   <div>
-    <h4>Welcome!</h4>
     <SearchBarContainer/>
     <ListViewContainer/>
   </div>
