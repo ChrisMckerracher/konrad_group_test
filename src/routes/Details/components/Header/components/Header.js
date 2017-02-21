@@ -17,10 +17,12 @@ export default class Header extends React.Component {
           {date ? formatDate(date): ""}
         </div>
         <div className="teams-playing">
-          <div className={ isActive(boxscore.home_sname, active_team) } onClick = { () => this.props.setTeam(0) }>
+          <div className={ isActive(boxscore.home_sname, active_team) }
+            onClick = { () => this.props.setTeam(0) }>
             {boxscore.home_sname}
           </div>
-          <div className={ isActive(boxscore.away_sname, active_team) } onClick = { () => this.props.setTeam(1) }>
+          <div className={ isActive(boxscore.away_sname, active_team) }
+            onClick = { () => this.props.setTeam(1) }>
             {boxscore.away_sname}
           </div>
         </div>
