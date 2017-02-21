@@ -1,32 +1,6 @@
 import React from 'react'
-import './ListItem.scss'
-
-//ToDo: move to better place
-
-        //<div>{ props.game.linescore }</div>
-
-export function changeActiveRedirect (details, redirect, game) {
-  details(game)
-  redirect()
-}
-
-function winningTeam(int, linescore) {//0 or 1, should use enum
-  if (!linescore) {
-    return ""
-  }
-  let score = linescore.r
-  if (score.home > score.away){
-    return int == 0 ? "winning-team" : ""
-    
-  } else if (score.away > score.home) {
-    return int == 1 ? "winning-team" : ""
-    
-  } else {
-    return ""
-  }
-
-}
-
+import '../styles/ListItem.scss'
+import { winningTeam, changeActiveRedirect } from "../utilities"
 
 export const ListItem = (props) => (
     <div className="list-item" onClick={ () =>
@@ -45,6 +19,5 @@ export const ListItem = (props) => (
     </div>
     
 )
-
 
 export default ListItem

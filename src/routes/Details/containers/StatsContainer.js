@@ -1,6 +1,7 @@
 import { connect } from 'react-redux'
-import Stats from '../components/Stats'
 import { setTeam } from '../modules/stats'
+
+import Stats from '../components/Stats'
 
 const mapDispatchToProps = {
   setTeam : (int) => setTeam(int)

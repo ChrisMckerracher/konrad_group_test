@@ -2,8 +2,6 @@ import { connect } from 'react-redux'
 import { setActiveGame } from '../modules/listview'
 import { push } from 'react-router-redux'
 
-
-
 import ListView from '../components/ListView'
 
 var DETAILS_URL = '/details'

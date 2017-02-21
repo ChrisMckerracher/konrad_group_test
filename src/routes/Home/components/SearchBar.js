@@ -3,9 +3,7 @@ import ListViewContainer from '../containers/ListViewContainer'
 import SearchBarContainer from '../containers/SearchBarContainer'
 import './SearchBar.scss'
  
-
-
-export class SearchBar extends React.Component  {
+export default class SearchBar extends React.Component  {
   
   componentWillMount() {
     if (this.props.games.games.length == 0) {
@@ -20,7 +18,9 @@ export class SearchBar extends React.Component  {
         {"<"}
         </button>
         <div className="date-info">
-        {this.props.games.date ? `${this.props.games.date.format('dddd')} ${this.props.games.date.format("MMM")} ${this.props.games.date.date()} ${this.props.games.date.year()}` : ""}
+        {this.props.games.date ?
+          `${this.props.games.date.format('dddd')} ${this.props.games.date.format("MMM")} ${this.props.games.date.date()} ${this.props.games.date.year()}`
+          : ""}
         </div>
         <button className="nav-button" onClick={ () => this.props.search(this.props.games.date, 1) }>
         >
@@ -29,5 +29,3 @@ export class SearchBar extends React.Component  {
     )
   }
 }
-
-export default SearchBar

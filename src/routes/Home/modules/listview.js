@@ -12,10 +12,6 @@ export function setActiveGame (value = 0) {
   }
 }
 
-export const actions = {
-  setActiveGame,
-}
-
 // ------------------------------------
 // Action Handlers
 // ------------------------------------

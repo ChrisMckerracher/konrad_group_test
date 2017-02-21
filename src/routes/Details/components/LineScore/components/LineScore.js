@@ -2,6 +2,7 @@ import React from 'react'
 import ReactTable from 'react-table'
 
 import 'react-table/react-table.css'
+import { populateLineScore } from '../utilities'
 
 const columns = [
   {
@@ -43,26 +44,7 @@ const columns = [
   },
 ]
 
-function concat(obj1,obj2) {
-  return Object.assign(obj1, obj2) //not immuatable, fix if time
-}
-
-function populateLineScore(linescore, home_name, away_name){
-  let home_inning = {"team": home_name}
-  let away_inning = {"team": away_name}
-  linescore.inning_line_score.map((inning) => home_inning[inning.inning] = inning.home)
-  home_inning = concat(home_inning, {'H': linescore.home_team_runs})
-  home_inning = concat(home_inning, {'E': linescore.home_team_errors})
-  
-  linescore.inning_line_score.map((inning) => away_inning[inning.inning] = inning.away)
-  away_inning = concat(away_inning, {'H': linescore.away_team_runs})
-  away_inning = concat(away_inning, {'E': linescore.away_team_errors})
-  
-  console.log(home_inning)
-  
-  return [home_inning, away_inning]
-}
-export class LineScore extends React.Component {
+export default class LineScore extends React.Component {
 
   render() {
     //mainly want to check linescore's existence. Short circuit for sanity
@@ -84,5 +66,3 @@ export class LineScore extends React.Component {
     }
   }
 }
-
-export default LineScore
