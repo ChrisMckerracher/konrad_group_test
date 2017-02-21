@@ -67,7 +67,7 @@ export default function searchbarReducer (state = {isFetching: false, games: []}
 
   switch (action.type) {
     case SEARCH_DAY:
-      return Object.assign({}, state, {isFetching: true, date: new Date(action.year, action.month, action.day)})
+      return Object.assign({}, state, {isFetching: true, year: action.year, month: action.month, day: action.day})
     case RECEIVE_DAY:
       return Object.assign({}, state, {isFetching:false, games: action.games.game, })
     default:

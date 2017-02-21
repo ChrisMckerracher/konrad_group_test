@@ -5,12 +5,12 @@ import SearchBar from '../components/SearchBar'
 
 const milli_in_day = 86400000
 
-function incDecDate(date, direction) {
+const function incDecDate(date, direction) {
   let new_date = date
-  if (direction == -1) {
+  if direction == -1 {
     new_date = new Date(date.getTime() - milli_in_day)
     
-  } else if (direction == 1) {
+  } else if direction == 1 {
     new_date =  new Date(date.getTime() + milli_in_day)
     
   } else {//should always be 1, -1, or neutral

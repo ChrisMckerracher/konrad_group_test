@@ -15,9 +15,6 @@ function mapGames(games, details, redirect) {
 }
 export const ListView = (props) => (
   <div className='list-view'>
-    <div className="title">
-      { `${props.games.month}\\${props.games.day}\\${props.games.year}` }
-    </div>
     { props.games.games.length  ? mapGames(props.games.games, props.details, props.redirect) : "No Games" }
   </div>
 )
