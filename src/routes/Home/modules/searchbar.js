@@ -41,8 +41,7 @@ export function searchDay(year, month, day) {
     month = String(month)
     day = String(day)
     let url = `http://gd2.mlb.com/components/game/mlb/year_${year}/month_${month}/day_${day}/master_scoreboard.json`
-    console.log(url )
-  
+
     return fetch(url)
       .then( response => {
           if (response.status >= 400) {

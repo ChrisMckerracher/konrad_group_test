@@ -17,8 +17,6 @@ export function populateLineScore(linescore, home_name, away_name) {
   away_inning = concat(away_inning, {'H': linescore.away_team_runs})
   away_inning = concat(away_inning, {'E': linescore.away_team_errors})
   
-  console.log(home_inning)
-  
   return [home_inning, away_inning]
 }
 

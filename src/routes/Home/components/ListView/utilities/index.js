@@ -44,7 +44,7 @@ export function changeActiveRedirect (details, redirect, game) {
 function mapGames(games, details, redirect) {
     return (
       sort_by_team(games, "TOR").map((current_game) =>
-      <ListItem details = { details } redirect = { redirect } game={ current_game } />
+      <ListItem details = { details } redirect = { redirect } game={ current_game } key={ current_game.id }/>
       )
     )
 }

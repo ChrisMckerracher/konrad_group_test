@@ -25,3 +25,11 @@ export function formatDate(date) {
   let f_date = `${date.format('dddd')} ${date.format("MMM")} ${date.date()} ${date.year()}`
   return f_date
 }
+
+export function formatNewDate(date_string) {
+  //formats dates in the form of YYYY/MM/DD
+  
+  date_string = date_string.split("/")
+  let new_date = newDate(date_string[0], date_string[1] - 1, date_string[2])
+  return formatDate(new_date)
+}
