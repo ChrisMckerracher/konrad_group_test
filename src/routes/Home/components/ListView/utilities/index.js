@@ -36,6 +36,19 @@ export function winningTeam(int, linescore) {//0 or 1, should use enum
   }
 }
 
+export function getScore(int, linescore ) {
+  if (!linescore) {
+    return ""
+  }
+  if (int == 0) {
+    return linescore.r.home
+  }
+  if (int == 1) {
+    return linescore.r.away
+  }
+  return ""
+}
+
 export function changeActiveRedirect (details, redirect, game) {
   details(game)
   redirect()
