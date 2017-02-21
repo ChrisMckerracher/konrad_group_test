@@ -1,6 +1,24 @@
 .list-item {
-  height:200px;
-  width:300px;
+  display: flex;
+  flex-direction: column;
+  height:198px;
+  width:298px;
   border-style: solid;
   background-color: white;
+  margin: 1px;
+}
+
+.teams {
+  flex-grow: 3;
+  height: 0;
+}
+
+.status {
+  flex-grow: 1;
+  height: 0;
+  border-top: solid;
+}
+
+.winning-team {
+  background: rgba(0,0,0,0.2);
 }

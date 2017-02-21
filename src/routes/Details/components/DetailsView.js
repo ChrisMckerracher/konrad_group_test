@@ -6,15 +6,26 @@ import StatsContainer from '../containers/StatsContainer'
 export default class DetailsView extends React.Component {
   
   componentWillMount() {
-    this.props.search(this.props.game.game_data_directory)
+    if (this.props.game != "") {
+      this.props.search(this.props.game.game_data_directory)
+    }
   }
 
   render() {
-    return (
-      <div>
-        <LineScoreContainer/>
-        <StatsContainer/>
-      </div>
-    )
+      if (this.props.game_details.isFetching){
+        return (
+          <div>
+            Loading
+          </div>
+        )
+      } else {
+        return(
+          <div>
+            <LineScoreContainer/>
+            <StatsContainer/>
+          </div>
+        )
+      }
+    
   }
 }

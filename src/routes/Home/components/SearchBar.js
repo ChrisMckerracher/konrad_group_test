@@ -20,7 +20,7 @@ export class SearchBar extends React.Component  {
         {"<"}
         </button>
         <div className="date-info">
-        {this.props.games.date ? String(this.props.games.date) : ""}
+        {this.props.games.date ? `${this.props.games.date.format('dddd')} ${this.props.games.date.format("MMM")} ${this.props.games.date.date()} ${this.props.games.date.year()}` : ""}
         </div>
         <button className="nav-button" onClick={ () => this.props.search(this.props.games.date, 1) }>
         >

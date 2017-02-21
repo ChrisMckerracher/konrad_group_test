@@ -40,7 +40,7 @@ const ACTION_HANDLERS = {
   [SEARCH_DAY]    : (state, action) => state,
 }
 
-
+//todo: fix error where 404 doesnt list page correctly
 export function searchDay(year, month, day) {
 
   return dispatch => {
