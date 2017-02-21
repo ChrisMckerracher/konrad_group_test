@@ -24,19 +24,6 @@ export function receiveGame (url, json){
   }
 }
 
-export const actions = {
-  requestGame,
-  receiveGame,
-}
-
-// ------------------------------------
-// Action Handlers
-// ------------------------------------
-const ACTION_HANDLERS = {
-  [SEARCH_GAME]    : (state, action) => state,
-}
-
-
 export function searchGame(game_url) {
   return dispatch => {
     dispatch(requestGame(game_url))
