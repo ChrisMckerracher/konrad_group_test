@@ -9,7 +9,7 @@ import { formatDate } from 'utilities/date-time'
 export default class SearchBar extends React.Component  {
   
   componentWillMount() {
-    if (!(this.props.games.games ) || this.props.games.games.length == 0) {
+    if (this.props.games.games == "") {
       this.props.search("", 0)
     }
   }
